@@ -10,9 +10,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Transform placeholderParent = null;
 
     GameObject placeholder = null;
+    const string CARD_DROP_AREA = "Card drop area";
 
     public void OnBeginDrag(PointerEventData eventData) {
-        Debug.Log("OnBeginDrag");
+        if(this.transform.parent.name == CARD_DROP_AREA) {
+            eventData.pointerDrag = null;
+            return;
+        }
 
         placeholder = new GameObject();
         placeholder.transform.SetParent(this.transform.parent);
