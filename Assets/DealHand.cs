@@ -22,9 +22,14 @@ public class DealHand : MonoBehaviour{
 
                 card.transform.SetParent(panel.transform, false);
 
+                //set game date on card
+                Transform gameDateTransform = card.transform.Find("date");
+                Text gameDateText = gameDateTransform.GetComponent<Text>();
+                gameDateText.text = deck[x].date;
+
+                //set game name on card
                 Transform gameNameTransform = card.transform.Find("name");
                 Text gameNameText = gameNameTransform.GetComponent<Text>();
-
                 gameNameText.text = deck[x].name;
 
                 Debug.Log(deck[x].name);
@@ -50,6 +55,7 @@ public class DealHand : MonoBehaviour{
                 c.month = row[1];
                 int.TryParse(row[2], out c.day);
                 int.TryParse(row[3], out c.year);
+                c.date = row[1] + " " + row[2] + ", " + row[3].ToString();
 
                 deck.Add(c);
             }
