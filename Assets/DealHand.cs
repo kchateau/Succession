@@ -7,7 +7,6 @@ public class DealHand : MonoBehaviour{
 
     public List<Card> deck = new List<Card>();
     public GameObject myPrefab;
-    Text date;
 
     void Start(){
 
@@ -15,17 +14,27 @@ public class DealHand : MonoBehaviour{
 
         for (int i = 0; i < 3; i++) {
             int x = Random.Range(0, 850);
-
+        //TODO make it so cards wont show up more than once
             var panel = GameObject.Find("Hand");
 
             if (panel != null) {
-                GameObject a = (GameObject)Instantiate(myPrefab);
-                a.transform.SetParent(panel.transform, false);
+                GameObject card = (GameObject)Instantiate(myPrefab);
+
+                card.transform.SetParent(panel.transform, false);
+
+                Transform gameNameTransform = card.transform.Find("name");
+                Text gameNameText = gameNameTransform.GetComponent<Text>();
+
+                gameNameText.text = deck[x].name;
+
                 Debug.Log(deck[x].name);
             }
         }     
     }
 
+    /*
+     * Builds a List of card values
+     */
     private void GenerateDeck() {
         TextAsset gameData = Resources.Load<TextAsset>("game_data");
 
