@@ -25,7 +25,7 @@ public class DealHand : MonoBehaviour{
                 //set game date on card
                 Transform gameDateTransform = card.transform.Find("date");
                 Text gameDateText = gameDateTransform.GetComponent<Text>();
-                gameDateText.text = deck[x].date;
+                gameDateText.text = deck[x].date.ToString("MMM dd yyyy");
 
                 //set game name on card
                 Transform gameNameTransform = card.transform.Find("name");
@@ -33,6 +33,8 @@ public class DealHand : MonoBehaviour{
                 gameNameText.text = deck[x].name;
 
                 Debug.Log(deck[x].name);
+
+                gameDateText.enabled = false;
             }
         }     
     }
@@ -55,7 +57,7 @@ public class DealHand : MonoBehaviour{
                 c.month = row[1];
                 int.TryParse(row[2], out c.day);
                 int.TryParse(row[3], out c.year);
-                c.date = row[1] + " " + row[2] + ", " + row[3].ToString();
+                c.date = System.Convert.ToDateTime(c.month + " " + c.day + " " + c.year);
 
                 deck.Add(c);
             }

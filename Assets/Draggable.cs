@@ -66,7 +66,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
+        updateDateVisibility();
+
         Destroy(placeholder);
+    }
+
+    public void updateDateVisibility() {
+        if (this.transform.parent.name == "Card drop area") {
+            Transform gameDateTransform = this.transform.Find("date");
+            Text gameDateText = gameDateTransform.GetComponent<Text>();
+            gameDateText.enabled = true;
+        }
     }
 
 }
