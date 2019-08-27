@@ -67,16 +67,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
+        DestroyImmediate(placeholder);
         updateDateVisibility();
+        foreach (Transform child in this.transform.parent) {
+            Debug.Log(child);
+        }
 
         var myDate = getMyDate();
-        Debug.Log(myDate);
         var myLeftDate = getLeftDate();
-        Debug.Log(myLeftDate);
         var myRightDate = getRightDate();
-        Debug.Log(myRightDate);
 
-        Destroy(placeholder);
+        checkCardPlacement(myDate, myLeftDate, myRightDate);
+
     }
 
     public void updateDateVisibility() { 
@@ -85,27 +87,53 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             gameDateText.enabled = true;
     } 
 
-    private string getLeftDate() {
+    private System.DateTime? getLeftDate() {
         return getDateFromIndex(this.transform.GetSiblingIndex() - 1);
     }
 
-    private string getRightDate() {
+    private System.DateTime? getRightDate() {
         return getDateFromIndex(this.transform.GetSiblingIndex() + 1);
     }
 
-    private string getMyDate() {
+    private System.DateTime? getMyDate() {
         return getDateFromIndex(this.transform.GetSiblingIndex());
     }
 
-    private string getDateFromIndex(int index) {
+    private System.DateTime? getDateFromIndex(int index) {
         try {
             Transform temp = this.transform.parent.GetChild(index).Find("date");
             Text myDate = temp.GetComponent<Text>();
-            return myDate.text;
+            return System.Convert.ToDateTime(myDate.text);
         } catch (Exception e) {
-            return "";
-        }
-        
+            Debug.Log(e);
+            return null;
+        }                    
     }
 
+    private void checkCardPlacement(DateTime? myDate, DateTime? myLeftDate, DateTime? myRightDate) {
+        if (myLeftDate == null) {
+            if (myDate <= myRightDate) {
+                Debug.Log("Should be correct");
+            }
+            else {
+                Debug.Log("False placement");
+            }
+        }
+        else if (myRightDate == null) {
+            if (myDate >= myLeftDate) {
+                Debug.Log("Should be correct 1");
+            }
+            else {
+                Debug.Log("False placement 1");
+            }
+        }
+        else {
+            if (myDate >= myLeftDate && myDate <= myRightDate) {
+                Debug.Log("correcty woohoo");
+            }
+            else {
+                Debug.Log("wrong ");
+            }
+        }
+    }
 }
