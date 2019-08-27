@@ -68,7 +68,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
         DestroyImmediate(placeholder);
-        updateDateVisibility();
+        //updateDateVisibility();
         foreach (Transform child in this.transform.parent) {
             Debug.Log(child);
         }
@@ -105,7 +105,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             Text myDate = temp.GetComponent<Text>();
             return System.Convert.ToDateTime(myDate.text);
         } catch (Exception e) {
-            Debug.Log(e);
             return null;
         }                    
     }
@@ -113,27 +112,35 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private void checkCardPlacement(DateTime? myDate, DateTime? myLeftDate, DateTime? myRightDate) {
         if (myLeftDate == null) {
             if (myDate <= myRightDate) {
-                Debug.Log("Should be correct");
+                onCorrectPlacement();
             }
             else {
-                Debug.Log("False placement");
+                onInCorrectPlacement();
             }
         }
         else if (myRightDate == null) {
             if (myDate >= myLeftDate) {
-                Debug.Log("Should be correct 1");
+                onCorrectPlacement();
             }
             else {
-                Debug.Log("False placement 1");
+                onInCorrectPlacement();
             }
         }
         else {
             if (myDate >= myLeftDate && myDate <= myRightDate) {
-                Debug.Log("correcty woohoo");
+                onCorrectPlacement();
             }
             else {
-                Debug.Log("wrong ");
+                onInCorrectPlacement();
             }
         }
+    }
+
+    private void onCorrectPlacement() {
+        updateDateVisibility();
+    }
+
+    private void onInCorrectPlacement() {
+        Destroy(this.transform.gameObject);
     }
 }
