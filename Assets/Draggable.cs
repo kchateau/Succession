@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
@@ -68,15 +69,43 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
         updateDateVisibility();
 
+        var myDate = getMyDate();
+        Debug.Log(myDate);
+        var myLeftDate = getLeftDate();
+        Debug.Log(myLeftDate);
+        var myRightDate = getRightDate();
+        Debug.Log(myRightDate);
+
         Destroy(placeholder);
     }
 
-    public void updateDateVisibility() {
-        if (this.transform.parent.name == "Card drop area") {
+    public void updateDateVisibility() { 
             Transform gameDateTransform = this.transform.Find("date");
             Text gameDateText = gameDateTransform.GetComponent<Text>();
             gameDateText.enabled = true;
+    } 
+
+    private string getLeftDate() {
+        return getDateFromIndex(this.transform.GetSiblingIndex() - 1);
+    }
+
+    private string getRightDate() {
+        return getDateFromIndex(this.transform.GetSiblingIndex() + 1);
+    }
+
+    private string getMyDate() {
+        return getDateFromIndex(this.transform.GetSiblingIndex());
+    }
+
+    private string getDateFromIndex(int index) {
+        try {
+            Transform temp = this.transform.parent.GetChild(index).Find("date");
+            Text myDate = temp.GetComponent<Text>();
+            return myDate.text;
+        } catch (Exception e) {
+            return "";
         }
+        
     }
 
 }

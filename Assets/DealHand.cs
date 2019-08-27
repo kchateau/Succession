@@ -12,7 +12,8 @@ public class DealHand : MonoBehaviour{
 
         GenerateDeck();
 
-        for (int i = 0; i < 3; i++) {
+        //deal hand
+        for (int i = 0; i < 5; i++) {
             int x = Random.Range(0, 850);
         //TODO make it so cards wont show up more than once
             var panel = GameObject.Find("Hand");
@@ -36,7 +37,35 @@ public class DealHand : MonoBehaviour{
 
                 gameDateText.enabled = false;
             }
-        }     
+        }
+
+        //deal start drop area
+        for (int i = 0; i < 1; i++) {
+            int x = Random.Range(0, 850);
+            //TODO make it so cards wont show up more than once
+            var panel = GameObject.Find("Card drop area");
+
+            if (panel != null) {
+                GameObject card = (GameObject)Instantiate(myPrefab);
+
+                card.transform.SetParent(panel.transform, false);
+
+                //set game date on card
+                Transform gameDateTransform = card.transform.Find("date");
+                Text gameDateText = gameDateTransform.GetComponent<Text>();
+                gameDateText.text = deck[x].date.ToString("MMM dd yyyy");
+
+                //set game name on card
+                Transform gameNameTransform = card.transform.Find("name");
+                Text gameNameText = gameNameTransform.GetComponent<Text>();
+                gameNameText.text = deck[x].name;
+
+                Debug.Log(deck[x].name);
+
+                gameDateText.enabled = true;
+            }
+        }
+
     }
 
     /*
