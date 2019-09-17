@@ -142,5 +142,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private void onInCorrectPlacement() {
         Destroy(this.transform.gameObject);
+        DealHand.dealCard("Hand");
     }
 }
