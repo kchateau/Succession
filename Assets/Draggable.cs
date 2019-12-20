@@ -147,7 +147,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private void checkWin(){
         if(DealHand.Instance.win_counter >= 5){
-            Debug.Log("u win");
             SceneManager.LoadScene("win_scene");
         }
     }
