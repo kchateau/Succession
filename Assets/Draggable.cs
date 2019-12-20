@@ -75,9 +75,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         var myLeftDate = getLeftDate();
         var myRightDate = getRightDate();
 
-        checkCardPlacement(myDate, myLeftDate, myRightDate);
-        checkWin();
-
+        if(parentToReturnTo.name == CARD_DROP_AREA){
+            checkCardPlacement(myDate, myLeftDate, myRightDate);
+            checkWin();
+        }
     }
 
     public void updateDateVisibility() { 
