@@ -8,6 +8,7 @@ public class DealHand : MonoBehaviour{
     public static DealHand Instance;
     public List<Card> deck = new List<Card>();
     public GameObject myPrefab;
+    public int win_counter = 0;
 
     void Awake(){
         Instance = this;
@@ -79,5 +80,8 @@ public class DealHand : MonoBehaviour{
                 deck.Add(c);
             }
         }
+    }
+    public void inc_win() {
+        win_counter++;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
@@ -113,7 +114,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 onCorrectPlacement();
             }
             else {
-                onInCorrectPlacement();
+                onIncorrectPlacement();
             }
         }
         else if (myRightDate == null) {
@@ -121,7 +122,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 onCorrectPlacement();
             }
             else {
-                onInCorrectPlacement();
+                onIncorrectPlacement();
             }
         }
         else {
@@ -129,21 +130,25 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 onCorrectPlacement();
             }
             else {
-                onInCorrectPlacement();
+                onIncorrectPlacement();
             }
         }
     }
 
     private void onCorrectPlacement() {
         updateDateVisibility();
+        DealHand.Instance.inc_win();
     }
 
-    private void onInCorrectPlacement() {
+    private void onIncorrectPlacement() {
         Destroy(this.transform.gameObject);
         DealHand.dealCard("Hand");
     }
 
     private void checkWin(){
-        
+        if(DealHand.Instance.win_counter >= 5){
+            Debug.Log("u win");
+            SceneManager.LoadScene("win_scene");
+        }
     }
 }
