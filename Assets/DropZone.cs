@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 
     public void OnPointerEnter(PointerEventData eventData) {
-        //Debug.Log("OnPointerEnter");
         if (eventData.pointerDrag == null) {
             return;
         }
@@ -17,7 +16,6 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        //Debug.Log("OnPointerExit");
         if (eventData.pointerDrag == null) {
             return;
         }
@@ -28,8 +26,6 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
     }
 
     public void OnDrop(PointerEventData eventData) {
-        Debug.Log("OnDrop to " + gameObject.name);
-
         //object we are draggin is eventData.pointerDrag
         Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
         if (d != null) {

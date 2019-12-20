@@ -48,8 +48,6 @@ public class DealHand : MonoBehaviour{
             Text gameNameText = gameNameTransform.GetComponent<Text>();
             gameNameText.text = DealHand.Instance.deck[x].name;
 
-            Debug.Log(DealHand.Instance.deck[x].name);
-
             if (parent == "Hand") {
                 gameDateText.enabled = false;
             }

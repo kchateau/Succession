@@ -38,7 +38,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
 
     public void OnDrag(PointerEventData eventData) {
-        //Debug.Log("OnDragDrag");
         this.transform.position = eventData.position;
 
         if (placeholder.transform.parent != placeholderParent) {
@@ -62,7 +61,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        Debug.Log("OnEndDrag");
         this.transform.SetParent(parentToReturnTo);
         this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
         GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -70,7 +68,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         DestroyImmediate(placeholder);
         //updateDateVisibility();
         foreach (Transform child in this.transform.parent) {
-            Debug.Log(child);
         }
 
         var myDate = getMyDate();
@@ -78,6 +75,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         var myRightDate = getRightDate();
 
         checkCardPlacement(myDate, myLeftDate, myRightDate);
+        checkWin();
 
     }
 
@@ -143,5 +141,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private void onInCorrectPlacement() {
         Destroy(this.transform.gameObject);
         DealHand.dealCard("Hand");
+    }
+
+    private void checkWin(){
+        
     }
 }
