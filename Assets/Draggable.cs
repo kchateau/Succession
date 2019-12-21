@@ -139,11 +139,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private void onCorrectPlacement() {
         updateDateVisibility();
         DealHand.Instance.inc_win();
+        DealHand.Instance.inc_guess();
     }
 
     private void onIncorrectPlacement() {
         Destroy(this.transform.gameObject);
         DealHand.dealCard("Hand");
+        DealHand.Instance.inc_guess();
     }
 
     private void checkWin(){

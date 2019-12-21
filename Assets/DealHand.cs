@@ -9,6 +9,7 @@ public class DealHand : MonoBehaviour{
     public List<Card> deck = new List<Card>();
     public GameObject myPrefab;
     public int win_counter = 0;
+    public int guess_counter = 0;
 
     void Awake(){
         Instance = this;
@@ -83,5 +84,9 @@ public class DealHand : MonoBehaviour{
     }
     public void inc_win() {
         win_counter++;
+    }
+    public void inc_guess() {
+        guess_counter++;
+        Debug.Log(guess_counter);
     }
 }
