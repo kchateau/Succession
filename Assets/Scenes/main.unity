@@ -168,11 +168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -290,17 +290,17 @@ PrefabInstance:
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 51
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -663.6
       objectReference: {fileID: 0}
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
@@ -443,6 +443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPrefab: {fileID: 4763283569923934822, guid: 3d26fbd53ac11d24fad911525b60816d,
     type: 3}
+  win_counter: 0
+  guess_counter: 0
 --- !u!1001 &1639364427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,17 +515,17 @@ PrefabInstance:
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 284
+      value: 229
       objectReference: {fileID: 0}
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -560
       objectReference: {fileID: 0}
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
