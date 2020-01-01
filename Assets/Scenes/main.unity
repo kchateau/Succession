@@ -366,22 +366,22 @@ PrefabInstance:
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 8.599976
+      value: 8.4
       objectReference: {fileID: 0}
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14
+      value: 6.600006
       objectReference: {fileID: 0}
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -153.8
+      value: -62.7
       objectReference: {fileID: 0}
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 211.6
       objectReference: {fileID: 0}
     - target: {fileID: 4369910498080676892, guid: c72b5e6f22adf0d448488a75839d5402,
         type: 3}
@@ -478,7 +478,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0.49803922}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -616,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 229
+      value: 225.8
       objectReference: {fileID: 0}
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
@@ -626,7 +626,7 @@ PrefabInstance:
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 213.7
       objectReference: {fileID: 0}
     - target: {fileID: 7065079923384201157, guid: 4cfc47e3211fae740be790650785c6b3,
         type: 3}
